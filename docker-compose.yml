@@ -1,0 +1,26 @@
+version: '3'
+services:
+  mysql:
+   container_name: mysql
+   image: mysql/mysql-server:5.7
+   environment:
+    MYSQL_DATABASE: loja_virtual
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_USER: root
+    MYSQL_PASSWORD: root
+   ports:
+   - "3306:3306"
+   restart: always
+  
+  app:
+    restart: always
+    build: ./back-end/loja-virtual
+    working_dir: /back-end/loja-virtual
+    volumes:
+      - ./back-end/loja-virtual:/back-end/loja-virtual
+      - ~/.m2:/root/.m2
+    expose:
+      - "8080"
+    command: mvn clean spring-boot:run
+    depends_on:
+      - mysql
