@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class ProdutoService {
 
-  public URL = 'http://localhost:8080/api/produtos'; 
+  public URL = 'http://192.168.99.100:8080/api/produtos';
 
   constructor(private http: HttpClient) {
 

@@ -1,15 +1,24 @@
-<div class="form-group">
-  <label for="produto">Produto</label>
-  <input [(ngModel)]="produto" type="text" class="form-control" id="produto" placeholder="">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <h3>{{ titulo }}</h3>
+      <div class="form-group">
+        <label for="produto">Produto</label>
+        <input [(ngModel)]="produto" type="text" class="form-control" id="produto" placeholder="">
+      </div>
+      <div class="form-group">
+        <label for="descricao">Descrição</label>
+        <input [(ngModel)]="descricao" type="text" class="form-control" id="descricao" placeholder="">
+      </div>
+      <div class="form-group">
+        <label for="preco">Preço</label>
+        <input [(ngModel)]="preco" type="number" class="form-control" id="preco" placeholder="">
+      </div>
+      <button (click)="salvarProduto()" type="button" class="btn btn-primary">Salvar</button>
+      <button *ngIf="isAtualizarProduto" (click)="excluirProduto()" type="button" class="btn btn-danger">Excluir</button>
+      <button (click)="navegarParaListaProdutos()" type="button" class="btn btn-secondary">Cancelar</button>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
 </div>
-<div class="form-group">
-  <label for="descricao">Descrição</label>
-  <input [(ngModel)]="descricao" type="text" class="form-control" id="descricao" placeholder="">
-</div>
-<div class="form-group">
-  <label for="preco">Preço</label>
-  <input [(ngModel)]="preco" type="number" class="form-control" id="preco" placeholder="">
-</div>
-<button (click)="salvarProduto()" type="button" class="btn btn-primary">Salvar</button>
-<button *ngIf="isAtualizarProduto" (click)="excluirProduto()" type="button" class="btn btn-danger">Excluir</button>
-<button (click)="navegarParaListaProdutos()" type="button" class="btn btn-secondary">Cancelar</button>

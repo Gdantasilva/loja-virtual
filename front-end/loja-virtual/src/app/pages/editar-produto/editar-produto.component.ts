@@ -13,6 +13,8 @@ export class EditarProdutoComponent implements OnInit {
   public isAtualizarProduto = false;
   public produtoSalvo: Produto;
 
+  public titulo = 'Cadastrar novo produto';
+
   public produto = '';
   public descricao = '';
   public preco : number = 0;
@@ -26,6 +28,7 @@ export class EditarProdutoComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params => {
       if (params['produto']) {
+        this.titulo = 'Alterar produto';
         this.isAtualizarProduto = true;
         this.carregarProduto(params['produto']);
       }
