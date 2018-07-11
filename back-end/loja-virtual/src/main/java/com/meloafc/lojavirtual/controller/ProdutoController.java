@@ -21,7 +21,7 @@ import com.meloafc.lojavirtual.model.Produto;
 import com.meloafc.lojavirtual.repository.ProdutoRepository;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RequestMapping("/api")
 public class ProdutoController {
 	
