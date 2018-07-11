@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Observable } from '../../../node_modules/rxjs/Observable';
 import { Produto } from '../model/produto';
@@ -6,10 +7,18 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class ProdutoService {
 
-  public URL = 'http://192.168.99.100:8080/api/produtos';
+  public apiBaseUrl = '';
+  public URL = environment.apiBaseUrl + '/produtos';
 
   constructor(private http: HttpClient) {
-
+    // Get the hostname
+    let hostname = location.host;
+    if (hostname.indexOf(':') > 0) {
+      hostname = hostname.substr(0, hostname.indexOf(':'));
+    }
+    // Add a port or a subdomain to get the API url:
+    this.apiBaseUrl = 'http://' + hostname + ':8080';
+    this.URL = this.apiBaseUrl + '/api/produtos';
   }
 
   getProduto(id): Observable<Produto> {

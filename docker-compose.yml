@@ -11,8 +11,11 @@ services:
    ports:
    - "3306:3306"
    restart: always
+   networks:
+      - main
   
   back:
+    container_name: back
     restart: always
     build: ./back-end/loja-virtual
     working_dir: /back-end/loja-virtual
@@ -24,8 +27,11 @@ services:
     command: mvn clean spring-boot:run
     depends_on:
       - mysql
+    networks:
+      - main
 
   front:
+    container_name: front
     build: ./front-end/loja-virtual
     volumes:
       - ./front-end/loja-virtual:/front-end/loja-virtual/usr/src/app
@@ -34,3 +40,8 @@ services:
     depends_on:
       - mysql
       - back
+    networks:
+      - main
+
+networks:
+  main:
