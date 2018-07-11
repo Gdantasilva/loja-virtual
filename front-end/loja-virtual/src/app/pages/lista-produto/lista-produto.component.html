@@ -1,0 +1,21 @@
+<button (click)="navegarParaCadastrarProduto()" type="button" class="btn btn-primary">Novo produto</button>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Produto</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Preço</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of produtos">
+      <th scope="row">{{ i.id }}</th>
+      <td>{{ i.nome }}</td>
+      <td>{{ i.descricao }}</td>
+      <td>R${{ i.preco }}</td>
+      <td><button (click)="editar(i)" type="button" class="btn btn-primary">Editar</button></td>
+    </tr>
+  </tbody>
+</table>
