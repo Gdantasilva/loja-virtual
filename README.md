@@ -28,7 +28,10 @@ create database loja_virtual
 **4. Executar o back-end**
 
 ```bash
+cd back-end/loja-virtual
 mvn spring-boot:run
 ```
 
-O aplicativo começará a ser executado em <http://localhost:8080>.
+O back-end começará a ser executado em <http://localhost:8080>.
+
+### Requisitos front-end
