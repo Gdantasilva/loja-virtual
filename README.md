@@ -68,9 +68,13 @@ O back-end começará a ser executado em <http://localhost:8080>.
 2. NPM - 5.x.x
 3. Angular cli - 1.7.x
 
-**1. Executar o front-end**
+**1. Instalar as dependências do front-end**
 ```bash
 cd ../../front-end/loja-virtual
+npm install
+```
+**2. Executar o front-end**
+```bash
 ng serve
 ```
 
